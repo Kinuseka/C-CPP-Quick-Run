@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 this="${1}"
+shift
+appArgs="${@}" #Requires testing, adding here for later.
 cwd="$(pwd)"
 filedir="$cwd/$this"
 exec_name="cexecutable_binary"
@@ -112,6 +114,7 @@ openbinary()
     cd "$HOME/.cache/intercpp"
     chmod 777 "$exec_name"
     #echo -e "${cBWhite}[Shell] Running binary--${cReset}"
+    #./"$exec_name $appArgs" #Requires testing, adding here for later.
     ./"$exec_name"
     removebinary
 }
